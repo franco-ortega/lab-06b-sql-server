@@ -31,104 +31,104 @@
 
 import React, { Component } from 'react'
 import './App.css';
-import {
-    BrowserRouter as Router, 
-    Route, 
-    Switch,
-} from 'react-router-dom';
+// import {
+//     BrowserRouter as Router, 
+//     Route, 
+//     Switch,
+// } from 'react-router-dom';
 
 import request from 'superagent';
 //import Sort from './Sort';
-import { Link } from 'react-router-dom';
+//import { Link } from 'react-router-dom';
 
 export default class Fetch extends Component {
 
     state = {
-        pokeData: [],
-        pokemon: '',
-        sortAlphabetical: '',
-        sortType: 'id',
+        potionData: [],
+        //pokemon: '',
+        // sortAlphabetical: '',
+        // sortType: 'id',
         loading: true
     }
 
     componentDidMount = async () => {
-        this.fetchPokemon()
+        this.fetchPotion()
     }
 
 
     //https://agile-cove-58837.herokuapp.com/potions
-    fetchPokemon = async () => {
+    fetchPotion = async () => {
         this.setState({
             loading: true
         });
         const response = await request.get(`https://agile-cove-58837.herokuapp.com/potions`);
 
-        this.setState({ pokeData: response.body, loading: false})
+        this.setState({ potionData: response.body, loading: false})
     }
 
 //Search Input and Button
-    handleInput = async (e) => {
-        this.setState({ pokemon: e.target.value });
-    }
+    // handleInput = async (e) => {
+    //     this.setState({ pokemon: e.target.value });
+    // }
 
-    handleButton = async (e) => {
-        this.setState({ pokemon: e.target.value });
-        e.preventDefault();
-        const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.pokemon}`);
+    // handleButton = async (e) => {
+    //     this.setState({ pokemon: e.target.value });
+    //     e.preventDefault();
+    //     const response = await request.get(`https://alchemy-pokedex.herokuapp.com/api/pokedex?pokemon=${this.state.pokemon}`);
 
-        this.setState({ pokeData: response.body.results})
-    }
+    //     this.setState({ potionData: response.body.results})
+    // }
 
 //Drop Down Menus
-    handleAlphabeticalChange = async (e) => {
-        await this.setState({
-            sortAlphabetical: e.target.value
-        });
-        this.fetchPokemon()
-        console.log('ABC: ' + e.target.value);
-      }
+    // handleAlphabeticalChange = async (e) => {
+    //     await this.setState({
+    //         sortAlphabetical: e.target.value
+    //     });
+    //     this.fetchPotion()
+    //     console.log('ABC: ' + e.target.value);
+    //   }
     
-      handleTypeChange = async (e) => {
-        await this.setState({
-          sortType: e.target.value
-        });
-        this.fetchPokemon()
-        console.log('Type: ' + e.target.value);
-      }
+    //   handleTypeChange = async (e) => {
+    //     await this.setState({
+    //       sortType: e.target.value
+    //     });
+    //     this.fetchPotion()
+    //     console.log('Type: ' + e.target.value);
+    //   }
 
 //Pokemon Click to view Details
-      handleClick = async (onePoke) => {
-          this.props.history.push(`pokeData/${onePoke.pokemon}`);
-      }
+      // handleClick = async (onePotion) => {
+      //     this.props.history.push(`potionData/${onePotion.pokemon}`);
+      // }
 
     render() {
         return (
             <div className='fetch-div'>
-                <div className='search-and-sort-div'>
+                {/* <div className='search-and-sort-div'>
                     <div className='search-div'>
                         <input onChange={this.handleInput} />
                         <button onClick={this.handleButton}>Search by Name</button>
                     </div>
-                    {/* <div className='sort-div'>
+                    <div className='sort-div'>
                         <Sort
                         handleAlphabeticalChange={this.handleAlphabeticalChange}
                         handleTypeChange={this.handleTypeChange}
                         />
-                    </div> */}
-                </div>
-                <div className='fetched-pokemon-div'>
+                    </div>
+                </div> */}
+                <div className='fetched-potions-div'>
                     {
                     this.state.loading
                     ? <div><div>Loading</div></div>
-                    : this.state.pokeData.map(onePoke =>
-                        // <Link to={`/details/${onePoke.pokemon}`}>
-                       <div key={onePoke.onePoke} onClick={(e) => this.handleClick(onePoke)} className='fetched-details-div'>
+                    : this.state.potionData.map(onePotion =>
+                        // <Link to={`/details/${onePotion.pokemon}`}>
+                       <div key={onePotion.onePotion} onClick={(e) => this.handleClick(onePotion)} className='fetched-details-div'>
                             <p>
-                                <p className='poke-name'>{onePoke.potion}</p>
-                                {/* <img src={onePoke.url_image} alt={onePoke.pokemon} /> */}
-                                <p><span className='underline'>Type:</span> {onePoke.spell_level}</p>
-                                <p><span className='underline'>Attack: </span>{onePoke.tasty}</p>
-                                <p><span className='underline'>Defense:</span> {onePoke.brand}</p>
+                                <p className='potion-name'>{onePotion.potion}</p>
+                                {/* <img src={onePotion.url_image} alt={onePotion.pokemon} /> */}
+                                <p><span className='underline'>Type:</span> {onePotion.spell_level}</p>
+                                <p><span className='underline'>Attack: </span>{onePotion.tasty}</p>
+                                <p><span className='underline'>Defense:</span> {onePotion.brand}</p>
 
                             </p>
                         </div>
