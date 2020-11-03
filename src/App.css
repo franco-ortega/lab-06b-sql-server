@@ -1,8 +1,12 @@
+body {
+  margin: auto;
+}
+
 .fetch-div {
   border: solid orangered 10px;
   height: 500px;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   align-items: center;
   justify-content: center;
 }
@@ -21,4 +25,13 @@
   border: solid orange 2px;
   margin: 5px;
   padding: 5px;
+}
+
+.loading-div {
+  text-align: center;
+}
+
+.potion-name {
+  font-weight: bold;
+  text-decoration: underline;
 }
