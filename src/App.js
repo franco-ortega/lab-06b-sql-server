@@ -31,7 +31,8 @@ export default class Fetch extends Component {
                     this.state.loading
                     ? <div className='loading-div'><div>Loading</div> <img src='https://media.giphy.com/media/MTKsRM3QzNeOI59SbO/giphy.gif' alt='spinner' width='100' /> </div>
                     : this.state.potionData.map(onePotion =>
-                       <div key={onePotion.onePotion} onClick={(e) => this.handleClick(onePotion)} className='fetched-details-div'>
+                       <div key={onePotion.onePotion} 
+                        className='fetched-details-div'>
                             <p>
                                 <p className='potion-name'>{onePotion.potion}</p>
                                 <p><span className='underline'>Spell Level:</span> {onePotion.spell_level}</p>

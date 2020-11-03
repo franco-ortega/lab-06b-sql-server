@@ -26,3 +26,8 @@
 .loading-div {
   text-align: center;
 }
+
+.potion-name {
+  font-weight: bold;
+  text-decoration: underline;
+}
