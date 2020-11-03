@@ -25,7 +25,7 @@ export default class Fetch extends Component {
 
     render() {
         return (
-            <div className='fetch-div'>
+            <div className='fetch-div'>POTIONS
                 <div className='fetched-potions-div'>
                     {
                     this.state.loading
@@ -34,9 +34,9 @@ export default class Fetch extends Component {
                        <div key={onePotion.onePotion} onClick={(e) => this.handleClick(onePotion)} className='fetched-details-div'>
                             <p>
                                 <p className='potion-name'>{onePotion.potion}</p>
-                                <p><span className='underline'>Type:</span> {onePotion.spell_level}</p>
-                                <p><span className='underline'>Attack: </span>{onePotion.tasty}</p>
-                                <p><span className='underline'>Defense:</span> {onePotion.brand}</p>
+                                <p><span className='underline'>Spell Level:</span> {onePotion.spell_level}</p>
+                                <p><span className='underline'>Tasty: </span>{onePotion.tasty}</p>
+                                <p><span className='underline'>Brand:</span> {onePotion.brand}</p>
 
                             </p>
                         </div>
