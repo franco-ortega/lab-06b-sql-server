@@ -1,3 +1,7 @@
+body {
+  margin: auto;
+}
+
 .fetch-div {
   border: solid orangered 10px;
   height: 500px;
