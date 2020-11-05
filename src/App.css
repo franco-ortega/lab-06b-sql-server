@@ -43,3 +43,16 @@ ol, ul {
   font-weight: bold;
   text-decoration: underline;
 }
+
+.create-div, .form-div {
+  display: flex;
+  flex-direction: column;
+}
+
+div, label {
+  margin: 10px;
+}
+
+button {
+  width: 100px;
+}
