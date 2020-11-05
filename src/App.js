@@ -5,35 +5,37 @@ import {
     Switch,
 } from 'react-router-dom';
 import './App.css';
-import request from 'superagent';
+//import request from 'superagent';
 import Create from './Create.js';
+import ListPage from './ListPage.js';
+import Nav from './Nav.js';
 
 export default class Fetch extends Component {
 
-    state = {
-        potionData: [],
-        loading: true
-    }
+    // state = {
+    //     potionData: [],
+    //     loading: true
+    // }
 
-    componentDidMount = async () => {
-        this.fetchPotion()
-    }
+    // componentDidMount = async () => {
+    //     this.fetchPotion()
+    // }
 
-    //https://agile-cove-58837.herokuapp.com/potions
-    fetchPotion = async () => {
-        this.setState({
-            loading: true
-        });
-        const response = await request.get(`https://agile-cove-58837.herokuapp.com/potions`);
+    // //https://agile-cove-58837.herokuapp.com/potions
+    // fetchPotion = async () => {
+    //     this.setState({
+    //         loading: true
+    //     });
+    //     const response = await request.get(`https://agile-cove-58837.herokuapp.com/potions`);
 
-        this.setState({ potionData: response.body, loading: false})
-    }
+    //     this.setState({ potionData: response.body, loading: false})
+    // }
 
     render() {
         return (
-            <div className='fetch-div'>POTIONS
-            <Create />
-                <div className='fetched-potions-div'>
+            <div className='fetch-div'>HOME PAGE
+            
+                {/* <div className='fetched-potions-div'>
                     {
                     this.state.loading
                     ? <div className='loading-div'><div>Loading</div> <img src='https://media.giphy.com/media/MTKsRM3QzNeOI59SbO/giphy.gif' alt='spinner' width='100' /> </div>
@@ -49,16 +51,24 @@ export default class Fetch extends Component {
                             </p>
                         </div>
                     )}
-                </div>
+                </div> */}
                 <div>
                 <Router>
+                <Nav />
                     <Switch>
                         <Route 
                             path="/create" 
                             exact
                             render={(routerProps) => <Create {...routerProps} />} 
                         />
-
+                    </Switch>
+                    
+                    <Switch>
+                        <Route 
+                            path="/listpage" 
+                            exact
+                            render={(routerProps) => <ListPage {...routerProps} />} 
+                        />
                     </Switch>
                 </Router>
             </div>
