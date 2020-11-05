@@ -1,6 +1,12 @@
 import React, { Component } from 'react'
+import {
+    BrowserRouter as Router, 
+    Route, 
+    Switch,
+} from 'react-router-dom';
 import './App.css';
 import request from 'superagent';
+import Create from './Create.js';
 
 export default class Fetch extends Component {
 
@@ -26,6 +32,7 @@ export default class Fetch extends Component {
     render() {
         return (
             <div className='fetch-div'>POTIONS
+            <Create />
                 <div className='fetched-potions-div'>
                     {
                     this.state.loading
@@ -43,6 +50,18 @@ export default class Fetch extends Component {
                         </div>
                     )}
                 </div>
+                <div>
+                <Router>
+                    <Switch>
+                        <Route 
+                            path="/create" 
+                            exact
+                            render={(routerProps) => <Create {...routerProps} />} 
+                        />
+
+                    </Switch>
+                </Router>
+            </div>
             </div>
         )
     }
