@@ -5,32 +5,11 @@ import {
     Switch,
 } from 'react-router-dom';
 import './App.css';
-//import request from 'superagent';
 import Create from './Create.js';
 import ListPage from './ListPage.js';
 import Nav from './Nav.js';
 
 export default class Fetch extends Component {
-
-    // state = {
-    //     potionData: [],
-    //     loading: true
-    // }
-
-    // componentDidMount = async () => {
-    //     this.fetchPotion()
-    // }
-
-    // //https://agile-cove-58837.herokuapp.com/potions
-    // fetchPotion = async () => {
-    //     this.setState({
-    //         loading: true
-    //     });
-    //     const response = await request.get(`https://agile-cove-58837.herokuapp.com/potions`);
-
-    //     this.setState({ potionData: response.body, loading: false})
-    // }
-
     render() {
         return (
             <div className='fetch-div'>HOME PAGE

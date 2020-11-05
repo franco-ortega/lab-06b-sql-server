@@ -2,13 +2,13 @@ import React, { Component } from 'react'
 import request from 'superagent';
 
 const userFromLocalStorage = {
-    userID: 1
+    userId: 1
 }
 
 export default class Create extends Component {
 
     state = {
-        potionData: [],
+        brands: [],
         loading: true
     }
 
@@ -40,7 +40,7 @@ export default class Create extends Component {
         const newPotion = {
             brand_id: this.state.brandId,
             spell_level: this.state.spellLevel,
-            owner_id: this.state.userFromLocalStorage
+            owner_id: this.state.userFromLocalStorage.userId
         };
 
         await request
@@ -48,6 +48,10 @@ export default class Create extends Component {
         .send(newPotion);
 
         this.props.history.push('/');
+    }
+
+    handleChange = (e) => {
+        this.setState({ brandId: e.target.value });
     }
 
     render() {
@@ -60,12 +64,14 @@ export default class Create extends Component {
                     <div>
                         Brand: <select onChange={this.handleChange}>
                             {
-                                this.state.brands.map(brand => <option key={brand.id} value={brand.id} />
+                                this.state.brands.map(brand => <option key={brand.id} value={brand.id}>
+                                {brand.name}
+                                </option>)
                             }
-                            <option value="Arkex Brews">Arkex Brews</option>
+                            {/* <option value="Arkex Brews">Arkex Brews</option>
                             <option value="Davan's Draughts">Davan's Draughts</option>
                             <option value="Ismelda's Elixir's">Brand</option>
-                            <option value="Wild Tonics">Wild Tonics</option>
+                            <option value="Wild Tonics">Wild Tonics</option> */}
                         </select>
                     </div>
                     <button>
@@ -76,3 +82,4 @@ export default class Create extends Component {
         )
     }
 }
+
