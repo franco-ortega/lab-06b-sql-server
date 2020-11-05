@@ -41,7 +41,13 @@ export default class Create extends Component {
             brand_id: this.state.brandId,
             spell_level: this.state.spellLevel,
             owner_id: this.state.userFromLocalStorage
-        }
+        };
+
+        await request
+        .post('https://agile-cove-58837.herokuapp.com/potions')
+        .send(newPotion);
+
+        this.props.history.push('/');
     }
 
     render() {
