@@ -19,27 +19,14 @@ export default class Create extends Component {
     }
 
 
-    // componentDidMount = async () => {
-    //     this.fetchPotion()
-    // }
-
-    // //https://agile-cove-58837.herokuapp.com/potions
-    // fetchPotion = async () => {
-    //     this.setState({
-    //         loading: true
-    //     });
-    //     const response = await request.get(`https://agile-cove-58837.herokuapp.com/potions`);
-
-    //     this.setState({ potionData: response.body, loading: false})
-    // }
-
-
     handleSubmit = async (e) => {
         e.preventDefault();
 
         const newPotion = {
-            brand_id: this.state.brandId,
+            potion: this.state.potionName,
             spell_level: this.state.spellLevel,
+            tasty: this.state.tastyBoolean,
+            brand_id: this.state.brandId,
             owner_id: this.state.userFromLocalStorage.userId
         };
 
@@ -54,15 +41,40 @@ export default class Create extends Component {
         this.setState({ brandId: e.target.value });
     }
 
+    handleChangeTwo = (e) => {
+        this.setState({ tastyBoolean: e.target.value });
+    }
+
     render() {
+        console.log(this.state.brands);
+        console.log(this.state.potionName);
+        console.log(this.state.spellLevel);
+        console.log(this.state.tastyBoolean);
+        console.log(this.state.brandId);
+        //console.log(this.state.userFromLocalStorage.userId);
         return (
             <div className='create-div'>
                 Create a potion.
                 <form className='form-div' onSumbit={this.handleSubmit}>
-                    <label>Potion: <input></input></label>
-                    <label>Spell Level: <input></input></label>
+                    <label>
+                        Potion: <input onChange={e => this.setState({ potionName: e.target.value })}></input>
+                    </label>
+                    <label>
+                        Spell Level: <input onChange={e => this.setState({ spellLevel: e.target.value })}></input>
+                    </label>
+                    <div>
+                    
+                        {/* Tasty: <input onChange={e => this.setState({ tastyBoolean: e.target.value })}></input> */}
+                        Tasty: <select onChange={this.handleChangeTwo}>
+                            <option value="">True or False</option>
+                            <option value="true">true</option>
+                            <option value="false">false</option>
+                        </select>
+                    
+                    </div>
                     <div>
                         Brand: <select onChange={this.handleChange}>
+                            <option value=''>Pick Brand</option>
                             {
                                 this.state.brands.map(brand => <option key={brand.id} value={brand.id}>
                                 {brand.name}

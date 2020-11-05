@@ -16,23 +16,8 @@ export default class Fetch extends Component {
         this.setState({ potions: response.body });
     }
 
-
-    // componentDidMount = async () => {
-    //     this.fetchPotion()
-    // }
-
-    // //https://agile-cove-58837.herokuapp.com/potions
-    // fetchPotion = async () => {
-    //     this.setState({
-    //         loading: true
-    //     });
-    //     const response = await request.get(`https://agile-cove-58837.herokuapp.com/potions`);
-
-    //     this.setState({ potions: response.body, loading: false})
-    // }
-
-
     render() {
+        console.log(this.state.potions);
         return (
             <div className='fetch-div'>POTIONS (LIST PAGE)
                 <div className='fetched-potions-div'>
