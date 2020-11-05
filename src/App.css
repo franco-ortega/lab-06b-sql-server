@@ -2,9 +2,17 @@ body {
   margin: auto;
 }
 
+ol, ul {
+  list-style: none;
+}
+
+.nav-div {
+  text-align: center;
+}
+
 .fetch-div {
   border: solid orangered 10px;
-  height: 500px;
+  /* height: 500px; */
   display: flex;
   flex-direction: column;
   align-items: center;
