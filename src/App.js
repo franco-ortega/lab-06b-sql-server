@@ -8,6 +8,7 @@ import './App.css';
 import Create from './Create.js';
 import ListPage from './ListPage.js';
 import Nav from './Nav.js';
+import UpdatePotion from './UpdatePotion.js'
 
 export default class Fetch extends Component {
     render() {
@@ -30,6 +31,13 @@ export default class Fetch extends Component {
                             path="/listpage" 
                             exact
                             render={(routerProps) => <ListPage {...routerProps} />} 
+                        />
+                    </Switch>
+                    <Switch>
+                        <Route 
+                            path="/update" 
+                            exact
+                            render={(routerProps) => <UpdatePotion {...routerProps} />} 
                         />
                     </Switch>
                 </Router>

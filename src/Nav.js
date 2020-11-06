@@ -9,6 +9,7 @@ export default class Nav extends Component {
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/create">Create Potion</Link></li>
                     <li><Link to="/listpage">List Potions</Link></li>
+                    <li><Link to="/update">Update Potion</Link></li>
                 </ul>
             </div>
         )
