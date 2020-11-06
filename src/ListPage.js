@@ -31,7 +31,7 @@ export default class Fetch extends Component {
                                         <p><span className='underline'>Brand:</span> {onePotion.brand}</p>
                                         <p className='potion-name'>{onePotion.potion}</p>
                                         <p><span className='underline'>Spell Level:</span> {onePotion.spell_level}</p>
-                                        <p><span className='underline'>Tasty: </span>{onePotion.tasty}</p>
+                                        <p><span className='underline'>Tasty: </span>{onePotion.tasty.toString()}</p>
                                         
                                     </p>
                             </div>

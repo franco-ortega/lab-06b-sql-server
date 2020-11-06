@@ -27,7 +27,7 @@ export default class UpdatePotion extends Component {
         const matchingBrand = brands.find((brand) => {
             return brand.name === brandNameAsString
         })
-
+console.log(potion);
         this.setState({
             brands: brands,
             brandId: matchingBrand.id,
@@ -71,7 +71,6 @@ handleChangeBoolean = (e) => {
     render() {
 
 console.log(this.state.tastyBoolean);
-console.log(this.state.brandId);
         return (
             <div>
                 <h2>Update a Potion</h2>
@@ -92,9 +91,20 @@ console.log(this.state.brandId);
                     <label>
                         Tasty
                         <select onChange={this.handleChangeBoolean}>
-                            <option value=''>True or False</option>
-                            <option value='true'>True</option>
-                            <option value='false'>False</option>
+                            {/* <option value=''>True or False</option> */}
+                            <option value={true}>True</option>
+                            <option value={false}>False</option>
+
+                            {/* {
+                                this.state.brands.map(brand => <option
+                                selected={this.state.tastyBoolean === brand.id}
+                                key={brand.id}
+                                value={brand.id}
+                                >
+                                    {brand.name}
+                                </option>)
+                            } */}
+
                         </select>
                     </label>
                     <label>
@@ -119,12 +129,3 @@ console.log(this.state.brandId);
 }
 
 
-                            /* {
-                                this.state.brands.map(brand => <option
-                                selected={this.state.tastyBoolean === brand.id}
-                                key={brand.id}
-                                value={brand.id}
-                                >
-                                    {brand.name}
-                                </option>)
-                            } */
