@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import {
     fetchAllBrands,
-    //fetchAllPotions,
     fetchOnePotion,
     updatePotion
 } from './Utils.js';
@@ -35,8 +34,11 @@ export default class UpdatePotion extends Component {
             potionName: potion.potion,
             spellLevel: potion.spell_level,
             tastyBoolean: potion.tasty
+
         });
+
     }
+
 
 //submit form
     handleSubmit = async (e) => {
@@ -56,13 +58,20 @@ export default class UpdatePotion extends Component {
         this.props.history.push('/');
     }
 
-//event handler for drop down menu
+//event handler for Brands drop down menu
     handleChange = (e) => {
         this.setState({ brandId: e.target.value });
     }
 
+//event handler for Booleans drop down menu
+handleChangeBoolean = (e) => {
+    this.setState({ tastyBoolean: e.target.value });
+}
 
     render() {
+
+console.log(this.state.tastyBoolean);
+console.log(this.state.brandId);
         return (
             <div>
                 <h2>Update a Potion</h2>
@@ -82,16 +91,7 @@ export default class UpdatePotion extends Component {
                     </label>
                     <label>
                         Tasty
-                        <select onChange={this.handleChange}>
-                            {/* {
-                                this.state.brands.map(brand => <option
-                                selected={this.state.tastyBoolean === brand.id}
-                                key={brand.id}
-                                value={brand.id}
-                                >
-                                    {brand.name}
-                                </option>)
-                            } */}
+                        <select onChange={this.handleChangeBoolean}>
                             <option value='true'>True</option>
                             <option value='false'>False</option>
                         </select>
@@ -116,3 +116,14 @@ export default class UpdatePotion extends Component {
         )
     }
 }
+
+
+                            /* {
+                                this.state.brands.map(brand => <option
+                                selected={this.state.tastyBoolean === brand.id}
+                                key={brand.id}
+                                value={brand.id}
+                                >
+                                    {brand.name}
+                                </option>)
+                            } */
