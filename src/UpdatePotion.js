@@ -56,8 +56,8 @@ export default class UpdatePotion extends Component {
             }
         );
 
-        this.props.history.push('/');
-        window.location.href = '/listpage';
+        this.props.history.push('/listpage');
+//        window.location.href = '/listpage';
     }
 
 //event handler for Brands drop down menu
@@ -75,7 +75,6 @@ handleClickDelete = async (e) => {
     await deletePotion(this.props.match.params.id);
 
     this.props.history.push('/listpage');
-    // window.location.href = '/listpage';
 }
 
     render() {
@@ -83,8 +82,8 @@ console.log(this.props.match.params.id)
 console.log(this.state.tastyBoolean, typeof this.state.tastyBoolean);
         return (
             <div className='update-potion-div'>
-                <h2>Update a Potion</h2>
                 <form onSubmit={this.handleSubmit} className='update-form-div'>
+                    <h2>Update a Potion</h2>
                     <label>
                         Potion:
                         <input
@@ -122,12 +121,17 @@ console.log(this.state.tastyBoolean, typeof this.state.tastyBoolean);
                             }
                         </select>
                     </label>
-                    <button>Submit</button>
+                    <button
+                    className='update-button'>
+                        Submit Update
+                    </button>
                 </form>
                 <div className='delete-div'>
                     <button
                     className='delete-button'
-                    onClick={this.handleClickDelete}>Delete Potion</button>
+                    onClick={this.handleClickDelete}>
+                        Delete Potion
+                    </button>
 
                 </div>
             </div>

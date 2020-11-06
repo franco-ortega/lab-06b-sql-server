@@ -13,12 +13,14 @@ import UpdatePotion from './UpdatePotion.js'
 export default class Fetch extends Component {
     render() {
         return (
-            <div className='home-div'>Potion Home Page
+            <div className='home-div'>
+                <h1>
+                    Welcome to the Potion Home Page!!
+                </h1>
                 <Router>
                     <div className='home-nav-div'>
                         <Nav />
                     </div>
-                    Welcome!
                     <Switch>
                         <Route 
                             path="/create" 

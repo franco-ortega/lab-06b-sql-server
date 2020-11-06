@@ -20,7 +20,10 @@ export default class Fetch extends Component {
         console.log(this.state.potions);
         return (
             <div className='fetch-div'>
-                POTIONS (LIST PAGE)
+                <div>
+                    POTIONS
+                </div>
+                    (list page)
                 <div>
                     Click on a potion to update it.
                 </div>

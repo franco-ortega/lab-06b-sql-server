@@ -35,7 +35,7 @@ export default class Create extends Component {
         .post('https://agile-cove-58837.herokuapp.com/potions')
         .send(newPotion);
 
-        this.props.history.push('/');
+        this.props.history.push('/listpage');
     }
 
     handleChange = (e) => {
@@ -49,7 +49,9 @@ export default class Create extends Component {
     render() {
         return (
             <div className='create-div'>
-                Create a potion.
+                <h2>
+                    Create a potion.
+                </h2>
                 <form className='form-div' onSubmit={this.handleSubmit}>
                     <label>
                         Potion: <input onChange={e => this.setState({ potionName: e.target.value })}></input>
@@ -73,7 +75,8 @@ export default class Create extends Component {
                             }
                         </select>
                     </div>
-                    <button>
+                    <button
+                    className='create-button'>
                         Create Potion
                     </button>
                 </form>
