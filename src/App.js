@@ -12,9 +12,12 @@ import Nav from './Nav.js';
 export default class Fetch extends Component {
     render() {
         return (
-            <div className='fetch-div'>HOME PAGE
+            <div className='home-div'>Potion Home Page
                 <Router>
-                    <Nav />
+                    <div className='home-nav-div'>
+                        <Nav />
+                    </div>
+                    Welcome!
                     <Switch>
                         <Route 
                             path="/create" 
