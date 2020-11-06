@@ -92,6 +92,7 @@ console.log(this.state.brandId);
                     <label>
                         Tasty
                         <select onChange={this.handleChangeBoolean}>
+                            <option value=''>True or False</option>
                             <option value='true'>True</option>
                             <option value='false'>False</option>
                         </select>
