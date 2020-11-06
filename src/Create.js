@@ -46,11 +46,6 @@ export default class Create extends Component {
         this.setState({ tastyBoolean: e.target.value });
     }
     
-
-    // handleChangeTwo = (e) => {
-    //     this.setState({ tastyBoolean: e.target.value });
-    // }
-
     render() {
         return (
             <div className='create-div'>
@@ -60,7 +55,7 @@ export default class Create extends Component {
                         Potion: <input onChange={e => this.setState({ potionName: e.target.value })}></input>
                     </label>
                     <label>
-                        Spell Level: <input onChange={e => this.setState({ spellLevel: e.target.value })}></input>
+                        Spell Level: <input type='number' min='1' onChange={e => this.setState({ spellLevel: e.target.value })}></input>
                     </label>
                     <div>
                         Tasty: 
@@ -68,12 +63,6 @@ export default class Create extends Component {
                             <option value={true}>True</option>
                             <option value={false}>False</option>
                         </select>
-                        
-                        {/* <select onChange={this.handleChangeTwo}>
-                            <option value="">True or False</option>
-                            <option value="true">true</option>
-                            <option value="false">false</option>
-                        </select> */}
                     </div>
                     <div>
                         Brand: <select onChange={this.handleChange}>

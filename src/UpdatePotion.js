@@ -84,6 +84,8 @@ console.log(this.state.tastyBoolean);
                     <label>
                         Spell Level:
                         <input
+                        type='number'
+                        min='1'
                         value={this.state.spellLevel}
                         onChange={e => this.setState({ spellLevel: e.target.value})}
                         />
