@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import {
     fetchAllBrands,
     fetchOnePotion,
-    updatePotion
+    updatePotion,
+    deletePotion
 } from './Utils.js';
 
 const userFromLocalStorage = {
@@ -27,7 +28,7 @@ export default class UpdatePotion extends Component {
         const matchingBrand = brands.find((brand) => {
             return brand.name === brandNameAsString
         })
-console.log(potion);
+//console.log(potion);
         this.setState({
             brands: brands,
             brandId: matchingBrand.id,
@@ -56,6 +57,7 @@ console.log(potion);
         );
 
         this.props.history.push('/');
+        window.location.href = '/listpage';
     }
 
 //event handler for Brands drop down menu
@@ -68,13 +70,21 @@ handleChangeBoolean = (e) => {
     this.setState({ tastyBoolean: e.target.value });
 }
 
-    render() {
+//event handler for Delete button
+handleClickDelete = async (e) => {
+    await deletePotion(this.props.match.params.id);
 
-console.log(this.state.tastyBoolean);
+    this.props.history.push('/listpage');
+    // window.location.href = '/listpage';
+}
+
+    render() {
+console.log(this.props.match.params.id)
+console.log(this.state.tastyBoolean, typeof this.state.tastyBoolean);
         return (
-            <div>
+            <div className='update-potion-div'>
                 <h2>Update a Potion</h2>
-                <form onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit} className='update-form-div'>
                     <label>
                         Potion:
                         <input
@@ -92,9 +102,10 @@ console.log(this.state.tastyBoolean);
                     </label>
                     <label>
                         Tasty
-                        <select onChange={this.handleChangeBoolean}>
-                            <option value={true}>True</option>
-                            <option value={false}>False</option>
+                        <select onChange={this.handleChangeBoolean}
+                        >
+                            <option selected={!this.state.tastyBoolean} value={true}>True</option>
+                            <option selected={!this.state.tastyBoolean} value={false}>False</option>
                         </select>
                     </label>
                     <label>
@@ -113,6 +124,12 @@ console.log(this.state.tastyBoolean);
                     </label>
                     <button>Submit</button>
                 </form>
+                <div className='delete-div'>
+                    <button
+                    className='delete-button'
+                    onClick={this.handleClickDelete}>Delete Potion</button>
+
+                </div>
             </div>
         )
     }

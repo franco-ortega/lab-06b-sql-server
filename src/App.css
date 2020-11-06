@@ -117,3 +117,31 @@ button {
         width: 250px;
     }
 }
+
+.update-potion-div {
+  text-decoration: underline;
+}
+
+.update-form-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 10px;
+  padding: 10px;
+  border: solid 3px purple;
+}
+
+button, input, select {
+  margin: 5px;
+}
+
+.delete-div {
+  background-color: yellow;
+}
+
+.delete-button {
+  background-color: red;
+  font-weight: bold;
+  width: fit-content;
+  padding: 5px;
+}
