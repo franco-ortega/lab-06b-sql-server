@@ -91,20 +91,8 @@ console.log(this.state.tastyBoolean);
                     <label>
                         Tasty
                         <select onChange={this.handleChangeBoolean}>
-                            {/* <option value=''>True or False</option> */}
                             <option value={true}>True</option>
                             <option value={false}>False</option>
-
-                            {/* {
-                                this.state.brands.map(brand => <option
-                                selected={this.state.tastyBoolean === brand.id}
-                                key={brand.id}
-                                value={brand.id}
-                                >
-                                    {brand.name}
-                                </option>)
-                            } */}
-
                         </select>
                     </label>
                     <label>

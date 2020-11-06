@@ -9,7 +9,9 @@ export default class Create extends Component {
 
     state = {
         brands: [],
-        loading: true
+        brandId: 1,
+        loading: true,
+        tastyBoolean: true
     }
 
     componentDidMount = async () => {
@@ -40,9 +42,14 @@ export default class Create extends Component {
         this.setState({ brandId: e.target.value });
     }
 
-    handleChangeTwo = (e) => {
+    handleChangeBoolean = (e) => {
         this.setState({ tastyBoolean: e.target.value });
     }
+    
+
+    // handleChangeTwo = (e) => {
+    //     this.setState({ tastyBoolean: e.target.value });
+    // }
 
     render() {
         return (
@@ -56,15 +63,20 @@ export default class Create extends Component {
                         Spell Level: <input onChange={e => this.setState({ spellLevel: e.target.value })}></input>
                     </label>
                     <div>
-                        Tasty: <select onChange={this.handleChangeTwo}>
+                        Tasty: 
+                        <select onChange={this.handleChangeBoolean}>
+                            <option value={true}>True</option>
+                            <option value={false}>False</option>
+                        </select>
+                        
+                        {/* <select onChange={this.handleChangeTwo}>
                             <option value="">True or False</option>
                             <option value="true">true</option>
                             <option value="false">false</option>
-                        </select>
+                        </select> */}
                     </div>
                     <div>
                         Brand: <select onChange={this.handleChange}>
-                            <option value=''>Pick Brand</option>
                             {
                                 this.state.brands.map(brand => <option key={brand.id} value={brand.id}>
                                 {brand.name}
