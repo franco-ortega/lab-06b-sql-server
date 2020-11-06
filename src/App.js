@@ -35,7 +35,7 @@ export default class Fetch extends Component {
                     </Switch>
                     <Switch>
                         <Route 
-                            path="/update" 
+                            path="/update/:id"
                             exact
                             render={(routerProps) => <UpdatePotion {...routerProps} />} 
                         />

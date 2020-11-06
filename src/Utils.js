@@ -1,13 +1,13 @@
 import request from 'superagent';
 
-const URL = 'https://agile-cove-58837.herokuapp.com/'
+const URL = 'https://agile-cove-58837.herokuapp.com/';
 
 //Fetch all potions: GET
 export async function fetchAllPotions() {
     try {
         const response = await request.get(`${URL}potions`);
 
-        return response.body
+        return response.body;
     } catch(err) {
         throw err;
     }
@@ -18,7 +18,7 @@ export async function fetchOnePotion(someId) {
     try {
         const response = await request.get(`${URL}potions/${someId}`);
 
-        return response.body
+        return response.body;
     } catch(err) {
         throw err;
     }
@@ -29,7 +29,7 @@ export async function fetchAllBrands() {
     try {
         const response = await request.get(`${URL}brands`);
 
-        return response.body
+        return response.body;
     } catch(err) {
         throw err;
     }
@@ -40,7 +40,7 @@ export async function fetchOneBrand(someId) {
     try {
         const response = await request.get(`${URL}potions/${someId}`);
 
-        return response.body
+        return response.body;
     } catch(err) {
         throw err;
     }
@@ -75,8 +75,7 @@ export async function updatePotion(someId, newPotion) {
 //Delete Potion: DELETE
 export async function deletePotion(someId) {
     try {
-        await request
-        .delete(`${URL}potions/${someId}`)
+        await request.delete(`${URL}potions/${someId}`)
 
         return
     } catch(err) {
