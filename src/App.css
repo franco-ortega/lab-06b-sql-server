@@ -1,6 +1,6 @@
 body {
   margin: auto;
-  width: 600px;
+  width: 1000;
 }
 
 ol, ul {
@@ -11,7 +11,7 @@ ol, ul {
   display: flex;
   flex-direction: column;
   border: orchid solid 10px;
-  width: 600px;
+  width: 1000px;
   margin: auto;
   padding: 5px;
   text-align: center;
@@ -28,13 +28,12 @@ ol, ul {
 
 .fetch-div {
   border: solid orangered 5px;
-  /* height: 500px; */
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  width: 550px;
-  margin: 5px;
+  width: 900px;
+  margin: auto;
   padding: 5px;
 }
 
@@ -52,7 +51,7 @@ ol, ul {
 
 .fetched-details-div {
   border: solid orange 2px;
-  margin: 5px;
+  margin: 10px;
   padding: 5px;
   
 }
@@ -73,10 +72,48 @@ ol, ul {
 }
 
 div, label {
-  margin: 10px;
+  margin: auto;
   
 }
 
 button {
   width: 100px;
+}
+
+.no-underline {
+  text-decoration: none;
+}
+
+.fetched-details-div:hover {
+  background-color: lightcoral;
+  transform: scale(1.10);
+}
+
+
+@media (max-width: 900px) {
+  body {  
+      width: 500px;
+  }
+
+  .home-div {  
+      width: 500px;
+  }
+
+  .fetch-div {  
+      width: 450px;
+  }
+}
+
+  @media (max-width: 600px) {
+    body {  
+        width: 300px;
+    }
+  
+    .home-div {  
+        width: 300px;
+    }
+  
+    .fetch-div {  
+        width: 250px;
+    }
 }

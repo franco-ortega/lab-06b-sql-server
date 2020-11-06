@@ -19,13 +19,17 @@ export default class Fetch extends Component {
     render() {
         console.log(this.state.potions);
         return (
-            <div className='fetch-div'>POTIONS (LIST PAGE)
+            <div className='fetch-div'>
+                POTIONS (LIST PAGE)
+                <div>
+                    Click on a potion to update it.
+                </div>
                 <div className='fetched-potions-div'>
                     {
                         this.state.loading
                         ? <div className='loading-div'><div>Loading</div> <img src='https://media.giphy.com/media/MTKsRM3QzNeOI59SbO/giphy.gif' alt='spinner' width='100' /> </div>
                         : this.state.potions.map(onePotion =>
-                            <Link to={`/update/${onePotion.id}`}>
+                            <Link to={`/update/${onePotion.id}`} className='no-underline'>
                             <div key={onePotion.onePotion} className='fetched-details-div'>
                                     <p>
                                         <p><span className='underline'>Brand:</span> {onePotion.brand}</p>
