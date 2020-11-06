@@ -7,8 +7,8 @@ export default class Nav extends Component {
             <div className='nav-div'>
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/create">Create</Link></li>
-                    <li><Link to="/listpage">List Page</Link></li>
+                    <li><Link to="/create">Create Potion</Link></li>
+                    <li><Link to="/listpage">List Potions</Link></li>
                 </ul>
             </div>
         )
