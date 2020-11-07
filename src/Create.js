@@ -9,7 +9,9 @@ export default class Create extends Component {
 
     state = {
         brands: [],
-        loading: true
+        brandId: 1,
+        loading: true,
+        tastyBoolean: true
     }
 
     componentDidMount = async () => {
@@ -33,38 +35,39 @@ export default class Create extends Component {
         .post('https://agile-cove-58837.herokuapp.com/potions')
         .send(newPotion);
 
-        this.props.history.push('/');
+        this.props.history.push('/listpage');
     }
 
     handleChange = (e) => {
         this.setState({ brandId: e.target.value });
     }
 
-    handleChangeTwo = (e) => {
+    handleChangeBoolean = (e) => {
         this.setState({ tastyBoolean: e.target.value });
     }
-
+    
     render() {
         return (
             <div className='create-div'>
-                Create a potion.
+                <h2>
+                    Create a potion.
+                </h2>
                 <form className='form-div' onSubmit={this.handleSubmit}>
                     <label>
                         Potion: <input onChange={e => this.setState({ potionName: e.target.value })}></input>
                     </label>
                     <label>
-                        Spell Level: <input onChange={e => this.setState({ spellLevel: e.target.value })}></input>
+                        Spell Level: <input type='number' min='1' onChange={e => this.setState({ spellLevel: e.target.value })}></input>
                     </label>
                     <div>
-                        Tasty: <select onChange={this.handleChangeTwo}>
-                            <option value="">True or False</option>
-                            <option value="true">true</option>
-                            <option value="false">false</option>
+                        Tasty: 
+                        <select onChange={this.handleChangeBoolean}>
+                            <option value={true}>True</option>
+                            <option value={false}>False</option>
                         </select>
                     </div>
                     <div>
                         Brand: <select onChange={this.handleChange}>
-                            <option value=''>Pick Brand</option>
                             {
                                 this.state.brands.map(brand => <option key={brand.id} value={brand.id}>
                                 {brand.name}
@@ -72,7 +75,8 @@ export default class Create extends Component {
                             }
                         </select>
                     </div>
-                    <button>
+                    <button
+                    className='create-button'>
                         Create Potion
                     </button>
                 </form>

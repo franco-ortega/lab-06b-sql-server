@@ -1,9 +1,9 @@
 import React, { Component } from 'react'
 import {
     fetchAllBrands,
-    //fetchAllPotions,
     fetchOnePotion,
-    updatePotion
+    updatePotion,
+    deletePotion
 } from './Utils.js';
 
 const userFromLocalStorage = {
@@ -28,15 +28,18 @@ export default class UpdatePotion extends Component {
         const matchingBrand = brands.find((brand) => {
             return brand.name === brandNameAsString
         })
-
+//console.log(potion);
         this.setState({
             brands: brands,
             brandId: matchingBrand.id,
             potionName: potion.potion,
             spellLevel: potion.spell_level,
             tastyBoolean: potion.tasty
+
         });
+
     }
+
 
 //submit form
     handleSubmit = async (e) => {
@@ -53,20 +56,34 @@ export default class UpdatePotion extends Component {
             }
         );
 
-        this.props.history.push('/');
+        this.props.history.push('/listpage');
+//        window.location.href = '/listpage';
     }
 
-//event handler for drop down menu
+//event handler for Brands drop down menu
     handleChange = (e) => {
         this.setState({ brandId: e.target.value });
     }
 
+//event handler for Booleans drop down menu
+handleChangeBoolean = (e) => {
+    this.setState({ tastyBoolean: e.target.value });
+}
+
+//event handler for Delete button
+handleClickDelete = async (e) => {
+    await deletePotion(this.props.match.params.id);
+
+    this.props.history.push('/listpage');
+}
 
     render() {
+console.log(this.props.match.params.id)
+console.log(this.state.tastyBoolean, typeof this.state.tastyBoolean);
         return (
-            <div>
-                <h2>Update a Potion</h2>
-                <form onSubmit={this.handleSubmit}>
+            <div className='update-potion-div'>
+                <form onSubmit={this.handleSubmit} className='update-form-div'>
+                    <h2>Update a Potion</h2>
                     <label>
                         Potion:
                         <input
@@ -76,24 +93,18 @@ export default class UpdatePotion extends Component {
                     <label>
                         Spell Level:
                         <input
+                        type='number'
+                        min='1'
                         value={this.state.spellLevel}
                         onChange={e => this.setState({ spellLevel: e.target.value})}
                         />
                     </label>
                     <label>
                         Tasty
-                        <select onChange={this.handleChange}>
-                            {/* {
-                                this.state.brands.map(brand => <option
-                                selected={this.state.tastyBoolean === brand.id}
-                                key={brand.id}
-                                value={brand.id}
-                                >
-                                    {brand.name}
-                                </option>)
-                            } */}
-                            <option value='true'>True</option>
-                            <option value='false'>False</option>
+                        <select onChange={this.handleChangeBoolean}
+                        >
+                            <option selected={!this.state.tastyBoolean} value={true}>True</option>
+                            <option selected={!this.state.tastyBoolean} value={false}>False</option>
                         </select>
                     </label>
                     <label>
@@ -110,9 +121,22 @@ export default class UpdatePotion extends Component {
                             }
                         </select>
                     </label>
-                    <button>Submit</button>
+                    <button
+                    className='update-button'>
+                        Submit Update
+                    </button>
                 </form>
+                <div className='delete-div'>
+                    <button
+                    className='delete-button'
+                    onClick={this.handleClickDelete}>
+                        Delete Potion
+                    </button>
+
+                </div>
             </div>
         )
     }
 }
+
+
