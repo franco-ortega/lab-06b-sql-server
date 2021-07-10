@@ -18,7 +18,7 @@ export default class Fetch extends Component {
                     Welcome to the Potion Home Page!!
                 </h1>
                 <Router>
-                    <div className='home-nav-div'>
+                    <div>
                         <Nav />
                     </div>
                     <Switch>
