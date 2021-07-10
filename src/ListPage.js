@@ -17,13 +17,11 @@ export default class Fetch extends Component {
     }
 
     render() {
-        console.log(this.state.potions);
         return (
             <div className='fetch-div'>
                 <div>
                     POTIONS
                 </div>
-                    (list page)
                 <div>
                     Click on a potion to update it.
                 </div>
